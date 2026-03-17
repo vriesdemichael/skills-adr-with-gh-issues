@@ -17,7 +17,7 @@ Pick up one or more GitHub issues, plan implementation, execute the plan, and st
 - If more work is needed beyond the current issue, stop and ask whether a new issue should be created; do not infer consent from the conversation or from ADR policy.
 
 # ADR-first policy
-1. Use `read-adr` to gather relevant decisions and definition of done (DoD).
+1. Use `read-adr` on every invocation to gather relevant decisions and definition of done (DoD); this means a full read of all ADR records, not a targeted subset.
 2. If no ADR exists, explain that this orchestration mechanism requires ADR governance for the task.
 3. If no ADR exists, ask the user whether to create ADR structure now or skip using this skill for the task.
 4. If ADR exists but DoD is unclear, require the user to provide/approve DoD.
@@ -40,7 +40,7 @@ Pick up one or more GitHub issues, plan implementation, execute the plan, and st
 
 # Handoff conventions (portable)
 Use this routing contract across platforms:
-1. First handoff: invoke `read-adr` to get constraints + DoD.
+1. First handoff: invoke `read-adr` to get constraints + DoD from a full repository-wide ADR scan.
 2. If ADR is missing, explain that this skill requires ADR governance and ask the user whether to invoke `create-adr-structure` or skip this skill for the task.
 3. If the user chooses ADR creation, invoke `create-adr-structure`.
 4. If ADR changes are needed before implementation: invoke `update-adr`.

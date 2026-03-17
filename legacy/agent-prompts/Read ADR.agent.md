@@ -3,7 +3,7 @@ name: Read ADR
 description: Read the ADR (Architecture Decision Record) file and extract the relevant information to understand the architectural decisions made for the project. This agent will also provide the Defition of Done (DoD) for the task at hand, ensuring that all necessary criteria are met for successful completion.
 argument-hint: The task for which the ADR is being read, e.g., "Understand the architectural decisions for the database layer.", "Determine the architectural decisions for the API design.". When calling this agent from another agent indicate that you are an agent and not a user.
 # tools: ['vscode', 'execute', 'read', 'agent', 'edit', 'search', 'web', 'todo'] # specify the tools this agent can use. If not set, all enabled tools are allowed.
-user-invokable: false
+user-invocable: false
 ---
 # Task
 You provide information about a repository based on its ADR (Architecture Decision Record) files.
@@ -25,6 +25,7 @@ You MUST be able to determine a clear boundary for when a task (be it an issue t
 
 ## Reading the ADR
 Regardless of the the query, you will read ALL adr files using `#tool:agent/runSubagent` in parallel. 
+This is mandatory on every invocation. You must not cherry-pick a subset of records based on the query, file names, folder names, or caller hints. Relevance filtering happens only after all ADR files have been read.
 For every ADR file you will determine the following information:
 1. Is this record still relevant? (not superseded by another record, not deprecated, planned, proposed, rejected)
 2. Does this record have any relation with the query?
