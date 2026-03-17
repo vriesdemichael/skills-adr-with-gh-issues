@@ -20,6 +20,7 @@ The ADR should include at least the following sections:
 
 You may include more sections if that if the user desires it. In either case, you will describe the valid fields in a README.md which lives next to the ADR records.
 The readme MUST also contain a section on how to validate the ADR structure. This mean you should update the readme after you have determined how to validate the ADR structure.
+Each ADR record must cover one coherent decision subject only. If the interrogation surfaces multiple important decisions, create multiple ADR files instead of one large combined record. Split subjects whenever they have different rationale, alternatives, validation, or lifecycle.
 
 # Language specific considerations
 The ADR may be written in markdown or in a structured format such as YAML or JSON, depending on the preferences of the project team.
@@ -30,6 +31,7 @@ You will interrogate the user to create a basic ADR that can kickstart the proje
 
 You may present your questions by first generating output about the background of the question you are about to ask. Then you will ask the question using #tool:vscode/askQuestions (for vscode) or a similar question tool when you are not in vscode. You will ask the questions in a logical order, starting with high-level questions about the project and then moving on to more specific questions about the decision being made.
 When starting your interrogation you will create a TODO list of the topics you need to cover. You will check off the topics as you cover them. You will not move on to the next topic until you have covered the current one. You will not leave any topic uncovered. For the todo list you can use the #tool:todo if available or a similar tool when not using vscode. You will update the TODO list in real time as you cover each topic. 
+As answers come in, keep track of which decision subject they belong to. Do not assume the whole interrogation results in a single ADR. After the interview, group answers into distinct ADR subjects and write one ADR file per subject.
 
 Cover at least the following topics:
 1. Programming language: What programming language(s) will be used in the project? This will help determine the structure and format of the ADR, as well as any specific tools or resources that may be relevant for the agent instructions.
@@ -53,4 +55,5 @@ The readme for the ADR structure will be in:
 ./docs/decisions/README.md 
 
 The ADR will have an individual file per record. The filename will be in the format of the ADR number and title, e.g. ADR-001-use-gpt4.ext
+Avoid omnibus ADRs. If testing policy, CI rules, git discipline, documentation policy, and architecture direction are all independently important, they should become separate records rather than sections in one large ADR.
 You may discuss the desired filetype with the user. Markdown can be used for readability, while a structured format like YAML or JSON can be used for easier validation and parsing. You should make a recommendation based on the preferences of the project team and the tools they are using.
