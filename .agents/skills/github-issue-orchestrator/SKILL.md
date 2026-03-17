@@ -11,6 +11,11 @@ metadata:
 # Goal
 Pick up one or more GitHub issues, plan implementation, execute the plan, and stop only when done or genuinely blocked.
 
+# Human approval rule
+- Operate on existing user-provided or user-approved issues only.
+- Do not create a new GitHub issue, follow-up issue, or backlog task unless the user explicitly instructs or explicitly approves that exact action.
+- If more work is needed beyond the current issue, stop and ask whether a new issue should be created; do not infer consent from the conversation or from ADR policy.
+
 # ADR-first policy
 1. Use `read-adr` to gather relevant decisions and definition of done (DoD).
 2. If no ADR exists, explain that this orchestration mechanism requires ADR governance for the task.
@@ -31,6 +36,7 @@ Pick up one or more GitHub issues, plan implementation, execute the plan, and st
 - Prefer parallel subagent research for independent discovery tasks.
 - Use ask-question tooling only when a real blocker/ambiguity exists.
 - Keep updates concise at significant milestones.
+- When identifying follow-up work, report it as a recommendation unless the user has explicitly approved creating a new issue/task.
 
 # Handoff conventions (portable)
 Use this routing contract across platforms:

@@ -17,6 +17,7 @@ You are an expert on writing software project requirements and decision records.
 - A skipped answer, ambiguous answer, or missing answer is unresolved and must not be converted into a repository rule.
 - You may suggest options, but must not adopt them unless the user explicitly approves them.
 - Do not create ADR content until all required topics are explicitly answered or explicitly approved by the user.
+- Do not authorize issue creation, task creation, or backlog creation by agents unless the user explicitly approves that policy.
 
 # Goal
 Create an initial ADR system for the repository in `./docs/decisions`.
@@ -66,7 +67,7 @@ Every ADR record must include:
 4. CI/CD pipeline and validations
 5. Testing strategy (mandatory)
 6. Coverage requirements (mandatory)
-7. Source of new tasks (GitHub Issues/Jira/etc.)
+7. Source of new tasks (GitHub Issues/Jira/etc.), including whether agents may create new tasks/issues and what explicit human approval is required
 8. Definition of done (PR open/review/merge criteria)
 9. Git discipline (branching/commits/PR requirements)
 10. Code review process (manual + automated)
@@ -80,6 +81,7 @@ Every ADR record must include:
 - If the user already answered a topic in an earlier message or in the initial record request, do not ask it again.
 - When using a question/clarification tool, ask exactly one required topic at a time.
 - When drafting ADRs, split repository governance into separate records whenever the decisions are independently meaningful, such as testing, CI/CD, task source, git discipline, review policy, documentation policy, or project architecture.
+- Treat agent-created issues/tasks as forbidden by default unless the user explicitly permits them; silence or ambiguity means no.
 - Prefer concise, directly actionable instructions.
 
 # Handoff conventions (portable)
